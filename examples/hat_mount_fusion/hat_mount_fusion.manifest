@@ -1,0 +1,10 @@
+{
+    "autodeskProduct": "Fusion360",
+    "type": "script",
+    "author": "TEAM T.E.A.",
+    "description": {
+        "": "Raspberry Pi HAT (65x56.5) mount — parametric sketch+extrude example"
+    },
+    "supportedOS": "windows|mac",
+    "editEnabled": true
+}

@@ -1,0 +1,22 @@
+# 成果物/ステージング(プロジェクト固有、skill ではない)
+*.zip
+*.step
+*.stp
+*.stl
+*.f3d
+*.f3z
+*.png
+*.jpg
+*.jpeg
+*.pdf
+*.bin
+_dist/
+out/
+build/
+dist/
+# python
+__pycache__/
+*.pyc
+.DS_Store
+# local guard (非公開)
+.git/private-denylist

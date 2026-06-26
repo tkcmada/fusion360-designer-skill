@@ -1,0 +1,9 @@
+name: public-guard
+on: [push, pull_request]
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: deterministic public-repo guard (allowlist + secrets + artifacts)
+        run: bash scripts/check_public.sh tree
