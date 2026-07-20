@@ -59,7 +59,18 @@ build123d / STEP で作った "履歴なしソリッド" を、Fusion ネイテ�
 - **I9** 寸法/拘束/projection は **try/except** で保護。
 - **I10** 配布 = `<name>/<name>.py` + `.manifest`(同名)。
 
+## 機構検証 (r1–r3) — 設計を「動く・干渉しない・固定される」まで証明する
+オーサリング (上記 D/I) は *編集可能な* モデルを作る。**機構検証**は *その機構が正しい* ことを証明する。
+弱い検証 (bbox/中立姿勢のみ/目視/仮定/pass 盲信) を正しさの証明にせず、実ジオメトリの強検証へ:
+- **r1** 全ペアが干渉しない / **r2** 駆動源から可動域いっぱいで駆動でき各姿勢で干渉しない / **r3** 宙に浮かず固定。
+- 干渉は必ず **boolean 交差体積** `(a&b).volume`(bbox 厳禁)、可動は **可動域端までスイープ**、固定は **接触/締結を証明**。
+- 「干渉ゼロ・接触あり」の静的共存だけでなく **機能幾何**(伝達方向 / 保持 / 製造一体性 / 締結 / 閉じた穴・荷重経路) を検査。
+- **二重ループ**: 内側=決定論ハーネス / 外側=独立レビュー(r1–r3 と成果物のみ渡し、whitelist/意図は渡さない)。
+- 完了前に必ずハーネスを全 green にする。詳細・コードは reference を参照。
+
 ## 参考
 - [reference/rules.md](reference/rules.md) — 設計 D1–D6 / 実装 I1–I10(詳細・根拠)
 - [reference/cookbook.md](reference/cookbook.md) — Fusion API コードレシピ
-- [examples/hat_mount_fusion/](examples/hat_mount_fusion/) — 実例(Pi HAT マウント、D1/D2/D3 実証)
+- [reference/verification.md](reference/verification.md) — 機構検証 r1–r3 / P1–P6 / 機能幾何 / 二重ループ
+- [reference/verification-harness.md](reference/verification-harness.md) — 実行ハーネス(実体ブール積/スイープ/固定/リンケージ) + 検査タクソノミ
+- [examples/hat_mount_fusion/](examples/hat_mount_fusion/) — 実例(HAT マウント、D1/D2/D3 実証)
